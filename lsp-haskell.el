@@ -74,14 +74,14 @@
   :group 'lsp-haskell
   :type 'boolean)
 (defcustom lsp-haskell-formatting-provider
-  "ormolu" 
+  "ormolu"
   "The formatter to use when formatting a document or range."
   :group 'lsp-haskell
-  :type '(choice (const :tag "brittany" "brittany") 
-                 (const :tag "floskell" "floskell") 
-                 (const :tag "fourmolu" "fourmolu") 
-                 (const :tag "ormolu" "ormolu") 
-                 (const :tag "stylish-haskell" "stylish-haskell") 
+  :type '(choice (const :tag "brittany" "brittany")
+                 (const :tag "floskell" "floskell")
+                 (const :tag "fourmolu" "fourmolu")
+                 (const :tag "ormolu" "ormolu")
+                 (const :tag "stylish-haskell" "stylish-haskell")
                  (const :tag "none" "none")))
 
 ;; ---------------------------------------------------------------------
@@ -229,7 +229,7 @@ and `lsp-haskell-server-args' and `lsp-haskell-server-wrapper-function'."
   (funcall lsp-haskell-server-wrapper-function (append (list lsp-haskell-server-path "--lsp") lsp-haskell-server-args) ))
 
 ;; Register all the language server settings with lsp-mode.
-;; Note that customizing these will currently *not* send the updated configuration to the server, 
+;; Note that customizing these will currently *not* send the updated configuration to the server,
 ;; users must manually restart. See https://github.com/emacs-lsp/lsp-mode/issues/1174.
 (lsp-register-custom-settings '(
                                 ("haskell.formattingProvider" lsp-haskell-formatting-provider)
@@ -238,7 +238,8 @@ and `lsp-haskell-server-args' and `lsp-haskell-server-wrapper-function'."
                                 ("haskell.liquidOn" lsp-haskell-liquid-on t)
                                 ("haskell.diagnosticsOnChange" lsp-haskell-diagnostics-on-change t)
                                 ("haskell.maxNumberOfProblems" lsp-haskell-max-number-of-problems)
-                                ("haskell.hlintOn" lsp-haskell-hlint-on t)))
+                                ("haskell.hlintOn" lsp-haskell-hlint-on t)
+                                ("haskell.renameProvider" "retrie")))
 
 ;; This mapping is set for 'haskell-mode -> haskell' in the lsp-mode repo itself. If we move
 ;; it there, then delete it from here.
